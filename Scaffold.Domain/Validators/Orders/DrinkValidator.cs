@@ -1,0 +1,14 @@
+﻿using FluentValidation;
+using Scaffold.Domain.Aggregations.OrderAggregate;
+
+namespace Scaffold.Domain.Validators.Orders;
+
+public class DrinkValidator : AbstractValidator<Drink>
+{
+    public DrinkValidator()
+    {
+        RuleFor(c => c.Id).NotNull();
+        RuleFor(c => c.Name).NotNull().NotEmpty().Length(5, 100);
+        RuleFor(c => c.Value).NotNull();
+    }
+}
